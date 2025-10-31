@@ -54,8 +54,8 @@
 
           packages.service = pkgs.runCommand "pass-secret-service" { } ''
             mkdir -p "$out/share/dbus-1/services/" "$out/lib/systemd/user/"
-            sed -e "s|/user/bin/pass-secret-service|${self'.packages.default}|g" "${./systemd/org.freedesktop.secrets.service}" > "$out/share/dbus-1/services/org.freedesktop.secrets.service"
-            sed -e "s|/user/bin/pass-secret-service|${self'.packages.default}|g" "${./systemd/pass-secret-service.service}" > "$out/lib/systemd/user/pass-secret-service.service"
+            sed -e "s|/usr/bin/pass-secret-service|${self'.packages.default}|g" "${./systemd/org.freedesktop.secrets.service}" > "$out/share/dbus-1/services/org.freedesktop.secrets.service"
+            sed -e "s|/usr/bin/pass-secret-service|${self'.packages.default}|g" "${./systemd/pass-secret-service.service}" > "$out/lib/systemd/user/pass-secret-service.service"
           '';
 
         };
